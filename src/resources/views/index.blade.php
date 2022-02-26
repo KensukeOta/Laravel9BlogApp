@@ -2,5 +2,5 @@
     <x-slot:title>
         トップページ - Laravel9 BlogApp
     </x-slot>
-    本文です
+    <h1 class="text-center">title</h1>
 </x-layout>

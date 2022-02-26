@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+$theme-color: green;
+h1 {
+    color: $theme-color;
+}
