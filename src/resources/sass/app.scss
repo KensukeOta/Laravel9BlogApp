@@ -3,6 +3,21 @@
 @tailwind utilities;
 
 $theme-color: green;
-h1 {
-    color: $theme-color;
+
+/* header */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid $theme-color;
+}
+
+/* footer */
+
+footer {
+	text-align: center;
+	background: #999;
+    small {
+        color: #fff;
+    }
 }

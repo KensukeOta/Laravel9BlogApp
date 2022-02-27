@@ -13,6 +13,18 @@
         <link href="/css/app.css" rel="stylesheet">
     </head>
     <body class="antialiased">
+        <header>
+            <a href="/">
+                <h1>Laravel9BlogApp</h1>
+            </a>
+            <nav>
+                <a href="/signup">新規登録</a>
+                <a href="/login">ログイン</a>
+            </nav>
+        </header>
         {{ $slot }}
+        <footer>
+            <small>&copy; OtaKensuke</small>
+        </footer>
     </body>
 </html>
