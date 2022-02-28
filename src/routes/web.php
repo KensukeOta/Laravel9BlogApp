@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/signup', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 });

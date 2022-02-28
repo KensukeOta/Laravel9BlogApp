@@ -14,12 +14,20 @@
     </head>
     <body class="antialiased">
         <header>
-            <a href="/">
+            <a href="{{ route('posts.index') }}">
                 <h1>Laravel9BlogApp</h1>
             </a>
             <nav>
-                <a href="/signup">新規登録</a>
-                <a href="/login">ログイン</a>
+                @if (Auth::check())
+                <form action="{{ route('logout') }}" method="post" class="inline-block">
+                    @csrf
+                    {{-- <input type="submit" value="ログアウト"> --}}
+                    <button type="submit" class="border-none">ログアウト</button>
+                </form>
+                @else
+                <a href="{{ route('register.index') }}">新規登録</a>
+                <a href="{{ route('login') }}">ログイン</a>
+                @endif
             </nav>
         </header>
         {{ $slot }}
