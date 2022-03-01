@@ -19,7 +19,8 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
 });
 
 Route::middleware('guest')->group(function () {

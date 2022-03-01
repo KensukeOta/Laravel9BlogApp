@@ -5,7 +5,7 @@
 
     <h1>記事投稿フォーム</h1>
 
-    <form method="POST" action="/store">
+    <form method="POST" action="{{ route('posts.store') }}">
         @csrf
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
         <dl>
