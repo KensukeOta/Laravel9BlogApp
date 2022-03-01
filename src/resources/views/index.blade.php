@@ -17,7 +17,9 @@
     <ul>
         @forelse ($posts as $post)
             <li class="border p-2">
-                <a href="/" class="font-bold">{{ $post->title }}</a>
+                <a href="{{ route('posts.show', $post->id) }}" class="font-bold">
+                    {{ $post->title }}
+                </a>
                 <p>by {{ $post->user->name }}</p>
             </li>
         @empty
