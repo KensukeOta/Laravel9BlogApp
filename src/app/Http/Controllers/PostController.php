@@ -9,7 +9,8 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        return view('index');
+        $posts = Post::latest()->get();
+        return view('index')->with('posts', $posts);
     }
 
     public function create(Request $request)
