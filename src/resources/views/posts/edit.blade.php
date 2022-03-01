@@ -5,7 +5,7 @@
 
     <h1>記事編集フォーム</h1>
 
-    <form method="POST">
+    <form method="POST" action="{{ route('posts.update', $post->id) }}">
         @method('PATCH')
         @csrf
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
@@ -21,6 +21,6 @@
                 <p class="error-msg">{{ $message }}</p>
             @enderror
         </dl>
-        <button type="submit">投稿する</button>
+        <button type="submit">更新する</button>
     </form>
 </x-layout>
