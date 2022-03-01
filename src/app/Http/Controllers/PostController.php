@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -37,5 +38,15 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         return view('posts.show')->with('post', $post);
+    }
+
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+        if (Auth::id() === $post->user_id) {
+            return view('posts.edit')->with('post', $post);
+        } else {
+            return to_route('posts.index');
+        }
     }
 }
