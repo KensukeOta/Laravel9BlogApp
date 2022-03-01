@@ -4,7 +4,7 @@
     </x-slot>
 
     <h1>ログインページ</h1>
-    <form method="POST" action="/authenticate">
+    <form method="POST" action="{{ route('authenticate') }}">
         @csrf
         <dl>
             <dt><label for="email">メールアドレス</label></dt>

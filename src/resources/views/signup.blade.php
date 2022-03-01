@@ -4,7 +4,7 @@
     </x-slot>
 
     <h1>新規登録ページ</h1>
-    <form method="POST" action="/signup">
+    <form method="POST" action="{{ route('signup') }}">
         @csrf
         <dl>
             <dt><label for="name">名前</label></dt>
