@@ -20,7 +20,12 @@
                 <a href="{{ route('posts.show', $post->id) }}" class="font-bold">
                     {{ $post->title }}
                 </a>
-                <p>by {{ $post->user->name }}</p>
+                <section class="flex justify-between">
+                    <p>by {{ $post->user->name }}</p>
+                    @if (Auth::id() === $post->user_id)
+                        <a href="{{ route('posts.edit', $post->id) }}">編集</a>
+                    @endif
+                </section>
             </li>
         @empty
             <p>記事がありません</p>
