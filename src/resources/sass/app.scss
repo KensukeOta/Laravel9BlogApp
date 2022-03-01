@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* common */
+
 $theme-color: green;
+.error-msg {
+    color: red;
+}
 
 /* header */
 
@@ -26,6 +31,7 @@ footer {
 
 form {
     input,
+    textarea,
     button {
         border: 1px solid #ccc;
         outline: none;
