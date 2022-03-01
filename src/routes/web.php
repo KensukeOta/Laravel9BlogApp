@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
     Route::get('posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::patch('posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
 });
 
 Route::middleware('guest')->group(function () {
