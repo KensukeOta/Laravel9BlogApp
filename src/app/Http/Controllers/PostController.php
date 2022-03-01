@@ -49,4 +49,18 @@ class PostController extends Controller
             return to_route('posts.index');
         }
     }
+
+    public function update($id, Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        return to_route('posts.show', $post->id);
+    }
 }
