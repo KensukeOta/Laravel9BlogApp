@@ -2,10 +2,15 @@
     <x-slot:title>
         トップページ - Laravel9 BlogApp
     </x-slot>
+
     <h1>トップページ</h1>
+    <p>Welcome!
     @if (Auth::check())
-    <p>{{ Auth::user()->name }}</p>
+        {{ Auth::user()->name }}</p>
     @else
-    <p>stranger</p>
+        stranger</p>
     @endif
+    <nav class="text-center">
+        <a href="{{ route('posts.create') }}" class="border inline-block">投稿する</a>
+    </nav>
 </x-layout>

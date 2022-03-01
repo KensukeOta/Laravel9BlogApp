@@ -18,6 +18,10 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+});
+
 Route::middleware('guest')->group(function () {
     Route::get('/signup', [RegisterController::class, 'index'])->name('register.index');
     Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
