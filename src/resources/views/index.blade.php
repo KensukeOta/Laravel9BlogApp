@@ -24,7 +24,7 @@
                     <p>by {{ $post->user->name }}</p>
                     @if (Auth::id() === $post->user_id)
                         <a href="{{ route('posts.edit', $post->id) }}">編集</a>
-                        <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                        <form method="POST" action="{{ route('posts.destroy', $post->id) }}" id="delete-post">
                             @method('DELETE')
                             @csrf
 
@@ -37,4 +37,19 @@
             <p>記事がありません</p>
         @endforelse
     </ul>
+    <script>
+    'use strict';
+
+    {
+        document.getElementById('delete-post').addEventListener('submit', e => {
+            e.preventDefault();
+
+            if (!confirm('この記事を削除しますか？')) {
+                return;
+            }
+
+            e.target.submit();
+        });
+    }
+    </script>
 </x-layout>
