@@ -24,6 +24,12 @@
                     <p>by {{ $post->user->name }}</p>
                     @if (Auth::id() === $post->user_id)
                         <a href="{{ route('posts.edit', $post->id) }}">編集</a>
+                        <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                            @method('DELETE')
+                            @csrf
+
+                            <button class="border-none text-red-500">削除</button>
+                        </form>
                     @endif
                 </section>
             </li>

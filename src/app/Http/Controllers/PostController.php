@@ -31,6 +31,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->user_id = $request->user_id;
         $post->save();
+        
         return to_route('posts.index');
     }
 
@@ -61,6 +62,15 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
+
         return to_route('posts.show', $post->id);
+    }
+
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return to_route('posts.index');
     }
 }
